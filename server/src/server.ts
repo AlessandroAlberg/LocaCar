@@ -1,9 +1,22 @@
-import express from 'express';
+import express, { NextFunction, Request, Response } from 'express';
+import cors from 'cors';
+import routes from './routes';
 
 const app = express();
 
-app.get('/users', () => {
-    console.log('Listagem de usuários');
+app.use(cors());
+app.use(express.json());
+app.use(routes);
+
+//not Found
+app.use((request: Request, response: Response, next: NextFunction) => {
+    const error = new Error('Not found')
+    next(error);
 });
 
-app.listen(3333);
+// catch all
+app.use((response: Response ) => {
+    response.status(500);
+});
+
+app.listen(3333, () => console.log('Server is running'));
