@@ -9,9 +9,9 @@ class VehiclesController {
         
             if (board || model || brand) {
                 vehicles = await knex('vehicles')
-                .where('board', String(board))
-                .where('model', String(model))
-                .where('brand', String(brand))
+                .where('board', 'like', `%${board}%`)
+                .orWhere('model', 'like', `%${model}%`)
+                .orWhere('brand', 'like', `%${brand}%`)
                 .distinct()
             } else {
                 vehicles = await knex('vehicles');
