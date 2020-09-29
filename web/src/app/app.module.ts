@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,16 +10,17 @@ import { VeiculoNovoComponent } from './veiculo-novo/veiculo-novo.component';
 import { VeiculoEditarComponent } from './veiculo-editar/veiculo-editar.component';
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    AppRoutingModule, 
+    HttpClientModule
+  ],
   declarations: [
     AppComponent,
     VeiculosComponent,
     VeiculoDetalheComponent,
     VeiculoNovoComponent,
     VeiculoEditarComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

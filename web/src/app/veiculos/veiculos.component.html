@@ -1,8 +1,9 @@
 <div class="container">
-    <nav>
-        <a routerLink="/veiculo-novo" routerLinkActive="active">Novo Veiculo</a>
-        <a routerLink="/veiculo-detalhe" routerLinkActive="active">Detalhe do Veiculo</a>
-        <a routerLink="/veiculo-editar" routerLinkActive="active">Editar Veiculo</a>
-    </nav>
-    <router-outlet></router-outlet>
+    <h5>Lista de veiculos</h5>
+
+    <ul>
+        <li *ngFor="let vehicle of vehicles">
+            {{vehicle}}
+        </li>
+    </ul>
 </div>
