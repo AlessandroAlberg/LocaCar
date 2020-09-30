@@ -1,1 +1,117 @@
-<p>veiculo-novo works!</p>
+<div class="create-vehicle">
+    <h1 class="text-center my-3">Adicionas novo Veículo</h1>
+
+    <div class="create-input container">
+
+        <form [formGroup]="formCreateVehicles">
+
+            <!--Input-->
+            <div class="form-group input-group mb-2">
+                <div class="input-group-prepend">
+                <span class="input-group-text">Placa</span>
+                </div>
+                <input type="text" id="board" mask="AAA-AAAA" name="board" formControlName="board" autocomplete="off" class="form-control" placeholder="Digite a placa do veículo" aria-label="board" aria-describedby="basic-addon1" required>
+            </div>
+            
+            <!--Validações do formulario-->
+            <div *ngIf="board.invalid && (board.dirty || board.touched)" class="alert alert-danger">
+                <div *ngIf="board.errors.required">
+                    A placa é obrigatório.
+                </div>
+                <div *ngIf="board.errors.minlength">
+                    A placa deve ter 7 caracteres.
+                </div>
+            </div>
+
+            <!--Input-->
+            <div class="form-group input-group mb-2">
+                <div class="input-group-prepend">
+                <span class="input-group-text">Chassi</span>
+                </div>
+                <input type="text" id="chassi" mask="AAAAAAAAAAAAAAAAA" name="chassi" formControlName="chassi" autocomplete="off" class="form-control" placeholder="Digite o chassi do veículo" aria-label="chassi" aria-describedby="basic-addon1" required>
+            </div>
+
+            <!--Validações do formulario-->
+            <div *ngIf="chassi.invalid && (chassi.dirty || chassi.touched)" class="alert alert-danger">
+                <div *ngIf="chassi.errors.required">
+                    O chassi é obrigatório.
+                </div>
+                <div *ngIf="chassi.errors.minlength">
+                    O chassi deve ter 17 caracteres.
+                </div>
+            </div>
+
+            <!--Input-->
+            <div class="form-group input-group mb-2">
+                <div class="input-group-prepend">
+                <span class="input-group-text">Renavam</span>
+                </div>
+                <input type="text" id="renavam" mask="00000000000" name="renavam" formControlName="renavam" autocomplete="off" class="form-control" placeholder="Digite o renavam do veículo" aria-label="renavam" aria-describedby="basic-addon1" required>
+            </div>
+
+            <!--Validações do formulario-->
+            <div *ngIf="renavam.invalid && (renavam.dirty || renavam.touched)" class="alert alert-danger">  
+                <div *ngIf="renavam.errors.required">
+                    O renavam é obrigatório.
+                </div>
+                <div *ngIf="renavam.errors.minlength">
+                    O renavam deve ter 11 números.
+                </div>
+            </div>
+
+            <!--Input-->
+            <div class="form-group input-group mb-2">
+                <div class="input-group-prepend">
+                <span class="input-group-text">Modelo</span>
+                </div>
+                <input type="text" id="model" name="model" formControlName="model" autocomplete="off" class="form-control" placeholder="Digite o modelo do veículo" aria-label="model" aria-describedby="basic-addon1" required>
+            </div>
+
+            <!--Validações do formulario-->
+            <div *ngIf="model.invalid && (model.dirty || model.touched)" class="alert alert-danger">
+                <div *ngIf="model.errors.required">
+                    O modelo é obrigatório.
+                </div>
+            </div>
+
+            <!--Input-->
+            <div class="form-group input-group mb-2">
+                <div class="input-group-prepend">
+                <span class="input-group-text">Marca</span>
+                </div>
+                <input type="text" id="brand" name="brand" formControlName="brand" autocomplete="off" class="form-control" placeholder="Digite a marca do veículo" aria-label="brand" aria-describedby="basic-addon1" required>
+            </div>
+
+            <!--Validações do formulario-->
+            <div *ngIf="brand.invalid && (brand.dirty || brand.touched)" class="alert alert-danger">
+                <div *ngIf="brand.errors.required">
+                    A Marca é obrigatório.
+                </div>
+            </div>
+
+            <!--Input-->
+            <div class="form-group input-group mb-2">
+                <div class="input-group-prepend">
+                <span class="input-group-text">Ano</span>
+                </div>
+                <input type="text" id="year" mask="0000" name="year" formControlName="year" autocomplete="off" class="form-control" placeholder="Digite o ano do veículo" aria-label="year" aria-describedby="basic-addon1" required>
+            </div>
+
+            <!--Validações do formulario-->
+            <div *ngIf="year.invalid && (year.dirty || year.touched)" class="alert alert-danger">
+                <div *ngIf="year.errors.required">
+                    O ano é obrigatório.
+                </div>
+                <div *ngIf="year.errors.minlength">
+                    O ano deve ter 4 números.
+                </div>
+            </div>
+            
+        </form>
+
+        <div class="btn d-flex justify-content-end">
+            <a routerLink="/" class="btn btn-primary my-3 mr-2">Voltar</a>
+            <a class="btn btn-success my-3 mr-n3" (click)="handleCreate()">Adicionar</a>
+        </div>
+    </div>
+</div>

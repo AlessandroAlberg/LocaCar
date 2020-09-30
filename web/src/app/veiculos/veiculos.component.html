@@ -40,7 +40,7 @@
                     <td class="actions">
                         <a class="btn btn-success btn-xs" routerLink="/veiculo-detalhe/{{vehicle.id}}" routerLinkActive="active">Visualizar</a>
                         <a class="btn btn-warning btn-xs mx-2" routerLink="/veiculo-editar/{{vehicle.id}}" routerLinkActive="active">Editar</a>
-                        <a class="btn btn-danger btn-xs" (click)="modalDelete(vehicle.id)">Excluir</a>
+                        <a class="btn btn-danger btn-xs" (click)="handleDelete(vehicle.id)">Excluir</a>
                     </td>
                 </tr>
  

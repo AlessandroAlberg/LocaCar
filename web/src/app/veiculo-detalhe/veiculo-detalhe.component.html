@@ -1,1 +1,15 @@
-<p>veiculo-detalhe works!</p>
+<div class="info-vehicle">
+  <h1 class="text-center my-3">Detalhes do Veículo</h1>
+  <ul class="list-group">
+    <li class="list-group-item">Id: {{res.vehicle.id}}</li>
+    <li class="list-group-item">Placa: {{res.vehicle.board}}</li>
+    <li class="list-group-item">Chassi: {{res.vehicle.chassi}}</li>
+    <li class="list-group-item">Renavam: {{res.vehicle.renavam}}</li>
+    <li class="list-group-item">Modelo: {{res.vehicle.model}}</li>
+    <li class="list-group-item">Marca: {{res.vehicle.brand}}</li>
+    <li class="list-group-item">Ano: {{res.vehicle.year}}</li>
+  </ul>
+  <div class="btn d-flex justify-content-end">
+    <a routerLink="/" class="btn btn-primary mt-5 mr-">Voltar</a>
+  </div>
+</div>

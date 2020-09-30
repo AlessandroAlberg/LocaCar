@@ -27,7 +27,7 @@ export class VeiculosComponent implements OnInit {
     };
   }
 
-  modalDelete(id: number) {
+  handleDelete(id: number) {
     let msg = confirm("Tem certeza que deseja excluir? ");
 
     if (msg == true)

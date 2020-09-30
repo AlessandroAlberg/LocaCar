@@ -25,18 +25,15 @@ export class VeiculosService {
   }
 
   public getVehicle(id: number) {
-    return this.http.get(`${environment.apiUrl}vehicles/${id}`)
-    .pipe(first());
+    return this.http.get(`${environment.apiUrl}vehicles/${id}`);
   }
 
   public updateVehicle( vehicle: Vehicle ) {
-    return this.http.put(`${environment.apiUrl}vehicles/${vehicle.id}`, vehicle )
-    .pipe(first());
+    return this.http.put(`${environment.apiUrl}vehicles/${vehicle.id}`, vehicle );
   }
 
   public createVehicle( vehicle: Vehicle ) {
-    return this.http.post(`${environment.apiUrl}vehicles`, vehicle )
-    .pipe(first());
+    return this.http.post(`${environment.apiUrl}vehicles`, vehicle );
   }
 
   public deleteVehicle( id: number ) {
