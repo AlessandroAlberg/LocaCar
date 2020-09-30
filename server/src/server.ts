@@ -3,6 +3,12 @@ import cors from 'cors';
 import routes from './routes';
 
 const app = express();
+var morgan = require('morgan');
+var config = require('config');
+
+if(config.util.getEnv('NODE_ENV') !== 'test') {
+    app.use(morgan('combined'));
+}
 
 app.use(cors());
 app.use(express.json());
