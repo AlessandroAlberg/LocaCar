@@ -41,11 +41,19 @@ export class VeiculoNovoComponent implements OnInit {
         year: this.year.value
       };
 
-      this.veiculosService.createVehicle(vehicle).subscribe(
-        () => {
-          alert("Foi adicionado um novo veículo!");
-          window.location.replace("/");
-        }, (err) => console.log( err )
+      this.veiculosService.getAllVehicles(vehicle.board, vehicle.model, vehicle.brand).subscribe(
+        (res) => {
+          if(res) {
+            alert("Veículo já cadastrado!");
+          } else {
+            this.veiculosService.createVehicle(vehicle).subscribe(
+              () => {
+                alert("Foi adicionado um novo veículo!");
+                window.location.replace("/");
+              }, (err) => console.log( err )
+            )            
+          }
+        }, (err) => console.log(err)
       )
     }
   }
