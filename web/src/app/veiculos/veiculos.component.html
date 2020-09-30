@@ -1,9 +1,51 @@
-<div class="container">
-    <h5>Lista de veiculos</h5>
+<div id="top" class="row pt-5 pb-3">
+    <div class="col-md-3">
+        <h2 class="pl-4">Veículos</h2>
+    </div>
+ 
+    <div class="col-md-6">
+        <div class="input-group h2">
+            <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Itens">
+            <span class="input-group-btn">
+                <button class="btn btn-primary mb-3" type="submit">Pesquisar</button>
+            </span>
+        </div>
+    </div>
+ 
+    <div class="col-md-3">
+        <a routerLink="/veiculo-novo" routerLinkActive="active" class="btn btn-primary pull-right h2">Adicionar Veículo</a>
+    </div>
+</div> <!-- /#top -->
 
-    <ul>
-        <li *ngFor="let vehicle of vehicles">
-            {{vehicle}}
-        </li>
-    </ul>
-</div>
+<div id="list" class="row">
+ 
+    <div class="table-responsive col-md-12">
+        <table class="table table-striped" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Modelo</th>
+                    <th>Marca</th>
+                    <th>Ano</th>
+                    <th class="actions">Ações</th>
+                 </tr>
+            </thead>
+            <tbody>
+ 
+                <tr *ngFor="let vehicle of vehicles">
+                    <td>{{ vehicle.id }}</td>
+                    <td>{{ vehicle.model }}</td>
+                    <td>{{ vehicle.brand }}</td>
+                    <td>{{ vehicle.year }}</td>
+                    <td class="actions">
+                        <a class="btn btn-success btn-xs" routerLink="/veiculo-detalhe/{{vehicle.id}}" routerLinkActive="active">Visualizar</a>
+                        <a class="btn btn-warning btn-xs mx-2" routerLink="/veiculo-editar/{{vehicle.id}}" routerLinkActive="active">Editar</a>
+                        <a class="btn btn-danger btn-xs" (click)="modalDelete(vehicle.id)">Excluir</a>
+                    </td>
+                </tr>
+ 
+            </tbody>
+         </table>
+ 
+     </div>
+ </div> <!-- /#list -->

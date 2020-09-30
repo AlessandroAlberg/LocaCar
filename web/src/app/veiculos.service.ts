@@ -12,12 +12,16 @@ export class VeiculosService {
 
   constructor(private http: HttpClient) { }
 
-  public getVehicles( vehicle?: Vehicle ) {
-    return this.http.get(`${environment.apiUrl}vehicles?board=${vehicle.board}&model=${vehicle.model}&brand=${vehicle.brand}`)
-    .pipe(
-      first(),
-      map((res: any) => res.data)
-    );
+  public getAllVehicles( board?: string, model?: string, brand?: string ) {
+    if (board || model || brand){
+      return this.http.get(`${environment.apiUrl}vehicles?board=${board}&model=${model}&brand=${brand}`)
+      .pipe(
+        first(),
+        map((res: any) => res.data)
+      );
+    } else {
+      return this.http.get(`${environment.apiUrl}vehicles`);
+    }
   }
 
   public getVehicle(id: number) {
@@ -36,8 +40,7 @@ export class VeiculosService {
   }
 
   public deleteVehicle( id: number ) {
-    return this.http.delete(`${environment.apiUrl}vehicles/${id}`)
-    .pipe(first());
+    return this.http.delete(`${environment.apiUrl}vehicles/${id}`);
   }
 
 }

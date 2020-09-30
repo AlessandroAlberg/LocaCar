@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { VeiculosService } from '../veiculos.service';
+import { Vehicle } from '../_models/veiculo.model';
 
 @Component({
   selector: 'app-veiculos',
@@ -9,19 +10,38 @@ import { VeiculosService } from '../veiculos.service';
 })
 export class VeiculosComponent implements OnInit {
 
-  vehicles: string[] = [];
-  veiculosService: VeiculosService;
+  vehicles: Vehicle[] = [];
 
-  constructor() {
-    this.veiculosService = new VeiculosService();
-   }
+  constructor(
+    private veiculosService: VeiculosService
+  ) { }
 
   ngOnInit(): void {
-    this.veiculosService.getVehicles().subscribe(
-      (vehicles) => {
-        this.vehicles = vehicles
+    this.veiculosService.getAllVehicles().subscribe(
+      (res) => {
+        this.vehicles = res;
       }
-    );
+    ),
+    (err) => {
+      console.log(err);
+    };
+  }
+
+  modalDelete(id: number) {
+    let msg = confirm("Tem certeza que deseja excluir? ");
+
+    if (msg == true)
+    {
+      this.veiculosService.deleteVehicle(id).subscribe(
+        (res) => {
+          alert('Veículo excluido com sucesso!');
+          location.reload();
+        }
+      ), (err) => {
+        console.log(err);
+      };
+
+    }
   }
 
 }
