@@ -34,6 +34,20 @@ export class VeiculoEditarComponent implements OnInit {
       year: [ null, [Validators.required, Validators.minLength(4)]],
     });
 
+    this.veiculosService.getVehicle(this.vehicleId).subscribe(
+      (res: any) => {
+        this.board.setValue(res.vehicle.board),
+        this.chassi.setValue(res.vehicle.chassi),
+        this.renavam.setValue(res.vehicle.renavam),
+        this.model.setValue(res.vehicle.model),
+        this.brand.setValue(res.vehicle.brand),
+        this.year.setValue(res.vehicle.year)
+      }
+    ),
+    (err) => {
+      console.log(err);
+    };
+
   }
 
   handleUpdate() {
