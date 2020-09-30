@@ -4,7 +4,7 @@ Na home você consegue ver os veículos adicionados, pesquisar entre eles para a
 
 ![alt text](https://github.com/AlessandroAlberg/LocaCar/blob/master/web/src/assets/images/Home.png)
 
-Em vizualisar podemomos ver detalhamente as informações sobre o veículo.
+Em vizualisar podemos ver detalhamente as informações sobre o veículo.
 
 ![alt text](https://github.com/AlessandroAlberg/LocaCar/blob/master/web/src/assets/images/Detalhes.png)
 
